@@ -37,6 +37,7 @@ struct User {
     given_name: String,
     family_name: String,
     email: String,
+    url: String,
     works_for: Vec<Department>,
     #[serde(deserialize_with = "empty_string_is_none")]
     job_title: Option<String>,
@@ -50,8 +51,8 @@ impl Display for User {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         writeln!(
             f,
-            "{} {} <{}>",
-            self.given_name, self.family_name, self.email
+            "\x1b]8;;{}\x1b\\{} {}\x1b]8;;\x1b\\ <{}>",
+            self.url, self.given_name, self.family_name, self.email
         )?;
         for dept in &self.works_for {
             writeln!(f, "    {}", dept.name)?;
