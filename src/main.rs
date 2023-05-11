@@ -77,6 +77,5 @@ struct Department {
 }
 
 fn empty_string_is_none<'de, D: Deserializer<'de>>(d: D) -> Result<Option<String>, D::Error> {
-    let o: Option<String> = Option::deserialize(d)?;
-    Ok(o.filter(|s| !s.is_empty()))
+    Ok(Option::deserialize(d)?.filter(|s: &String| !s.is_empty()))
 }
