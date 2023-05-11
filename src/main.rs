@@ -5,7 +5,7 @@ use std::error::Error;
 use std::fmt::{self, Display};
 
 fn main() {
-    let args = Args::from_args();
+    let args = Args::parse();
     for username in &args.names {
         match get_user(username) {
             Ok(user) => println!("{user}"),
