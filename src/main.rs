@@ -25,7 +25,7 @@ struct Args {
 
 fn get_user(username: &str) -> Result<User, Box<dyn Error>> {
     Ok(
-        get(format!("https://www.kth.se/api/profile/1.1/{username}"))?
+        get(format!("https://api.kth.se/api/profile/1.1/{username}"))?
             .error_for_status()?
             .json()?,
     )
