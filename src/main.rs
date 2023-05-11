@@ -4,7 +4,7 @@ use serde::{Deserialize, Deserializer};
 use std::error::Error;
 use std::fmt::{self, Display};
 
-fn main() -> Result<(), Box<dyn Error>> {
+fn main() {
     let args = Args::from_args();
     for username in &args.names {
         match get_user(username) {
@@ -12,7 +12,6 @@ fn main() -> Result<(), Box<dyn Error>> {
             Err(err) => println!("Failed to get user {username:?}: {err}\n"),
         }
     }
-    Ok(())
 }
 
 #[derive(Parser)]
