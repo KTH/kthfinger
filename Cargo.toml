@@ -1,6 +1,6 @@
 [package]
 name = "kthfinger"
-version = "0.1.0"
+version = "0.1.1"
 description = "Get public info about people at KTH."
 authors = ["Rasmus Kaj <kaj@kth.se>"]
 edition = "2021"
